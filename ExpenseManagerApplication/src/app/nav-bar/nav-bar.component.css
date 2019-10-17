@@ -1,0 +1,19 @@
+#navbardrop{
+    color: black
+}
+
+.nav-link:active {
+    color: blueviolet !important;
+}
+
+.nav-link:hover {
+    color: red !important;
+}
+
+.navbar{
+    background-color: rgb(98, 13, 138);
+    border-color:  rgb(98, 13, 138);
+}
+.navbar-brand{
+    color:rebeccapurple !important;
+}

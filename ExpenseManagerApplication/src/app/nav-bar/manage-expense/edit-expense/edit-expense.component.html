@@ -1,0 +1,20 @@
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Expense ID</th>
+        <th scope="col">Expense Date</th>
+        <th scope="col">Expense Name</th>
+        <th scope="col">Expense Category</th>
+        <th scope="col">Expense Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let expense of listOfExpenses">
+        <td>{{expense.expenseId}}</td>
+        <td>{{expense.expenseDate}}</td>
+        <td>{{expense.itemName}}</td>
+        <td>{{expense.itemCategory}}</td>
+        <td>{{expense.description}}</td>
+      </tr>
+    </tbody>
+  </table>

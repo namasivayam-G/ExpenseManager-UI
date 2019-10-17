@@ -1,0 +1,12 @@
+.row {
+
+    color: rgb(114, 28, 131);
+    font-family: cursive;
+ 
+    margin-right: 0px;
+    margin-left: 20px;
+}
+
+#inner-content{
+    padding-top: 5%;
+}
