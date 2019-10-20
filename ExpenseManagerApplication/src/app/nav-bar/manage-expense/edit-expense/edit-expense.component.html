@@ -1,20 +1,53 @@
-<table class="table table-hover">
-    <thead>
-      <tr>
-        <th scope="col">Expense ID</th>
-        <th scope="col">Expense Date</th>
-        <th scope="col">Expense Name</th>
-        <th scope="col">Expense Category</th>
-        <th scope="col">Expense Description</th>
+  <div class="card">
+      <h3 class="card-header text-center font-weight-bold text-uppercase py-4">My Expenses</h3>
+      <div class="card-body">
+        <div id="table" class="table-editable">
+          <span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-success"><i
+                class="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>
+          <table class="table table-bordered table-responsive-md table-striped text-center">
+            <thead>
+            <tr>
+        <th class="text-center">ID</th>
+        <th class="text-center">Date</th>
+        <th class="text-center">Name</th>
+        <th class="text-center">Cost</th>
+        <th class="text-center">Category</th>
+        <th class="text-center">Description</th>
+        <th class="text-center">Actions</th>
       </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let expense of listOfExpenses">
-        <td>{{expense.expenseId}}</td>
-        <td>{{expense.expenseDate}}</td>
-        <td>{{expense.itemName}}</td>
-        <td>{{expense.itemCategory}}</td>
-        <td>{{expense.description}}</td>
-      </tr>
-    </tbody>
-  </table>
+            </thead>
+            <tbody>
+                
+                <tr *ngFor="let recipient of exByCategory | keyvalue">
+                    <td class="pt-3-half" contenteditable="true">{{exByCategory}}</td>
+                </tr>  
+                <tr *ngFor="let expense of listOfExpenses">
+                  <td class="pt-3-half" contenteditable="true">{{expense.expenseId}}</td>
+                  <td class="pt-3-half" contenteditable="true">{{expense.expenseDate}}</td>
+                  <td class="pt-3-half" contenteditable="true">{{expense.itemName}}</td>
+                  <td class="pt-3-half" contenteditable="true">{{expense.itemCost}}</td>
+                  <td class="pt-3-half" contenteditable="true">{{expense.itemCategory}}</td>
+                  <td class="pt-3-half" contenteditable="true">{{expense.description}}</td>
+                  <td>
+                    <!-- <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a> -->
+                    <a id="edit" class="edit" title="Edit" data-toggle="tooltip"
+                      (click)="expense.isEditable=!expense.isEditable"
+                      *ngIf="!expense.isEditable">
+                    <i class="material-icons">&#xE254;</i></a>
+
+                    <a id="save" class="edit" title="Edit" data-toggle="tooltip"
+                      (click)="expense.isEditable=!expense.isEditable"
+                      *ngIf="expense.isEditable">
+                    <i class="material-icons">save</i></a>
+
+                    <a id="delete" class="delete" title="Delete" data-toggle="tooltip" (click)="delete(expense)">
+                    <i class="material-icons">&#xE872;</i></a>
+                    
+                  </td>
+                </tr>
+              </tbody>
+          </table>
+        </div>
+      </div>
+    </div> 
+

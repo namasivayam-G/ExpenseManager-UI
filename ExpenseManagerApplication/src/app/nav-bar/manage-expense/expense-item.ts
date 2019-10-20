@@ -1,9 +1,10 @@
 export interface ExpenseItem {
 
-    expenseId:String,
-    expenseDate:Date,
-    itemName:String,
-    itemCategory:String,
-    description:String,
-    userId:Number
+    expenseId?:String,
+    itemCost?:Number,
+    expenseDate?:Date,
+    itemName?:String,
+    itemCategory?:String,
+    description?:String,
+    userId?:Number;
 }

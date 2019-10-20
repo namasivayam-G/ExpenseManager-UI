@@ -3,7 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  getExpensesApiURL: 'http://localhost:8002/expense/total-expenses/1',
+  addExpensesApiURL: 'http://localhost:8002/expense/addExpense/1',
+  deleteExpensesApiURL: 'http://localhost:8002/expense/deleteExpense',
+  monthlyExpenseURL: 'http://localhost:8004/dashboard/monthly-expense-by-category/1/2019/10'
 };
 
 /*

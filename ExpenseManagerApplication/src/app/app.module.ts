@@ -8,7 +8,9 @@ import { ManageExpenseComponent } from './nav-bar/manage-expense/manage-expense.
 import { AddExpenseComponent } from './nav-bar/manage-expense/add-expense/add-expense.component';
 import { EditExpenseComponent } from './nav-bar/manage-expense/edit-expense/edit-expense.component';
 import {HttpClientModule} from '@angular/common/http';
-
+import { FormsModule } from '@angular/forms';
+import { DashboardComponent } from './nav-bar/dashboard/dashboard.component';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -17,13 +19,18 @@ import {HttpClientModule} from '@angular/common/http';
     ManageExpenseComponent,
     AddExpenseComponent,
     EditExpenseComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+ }

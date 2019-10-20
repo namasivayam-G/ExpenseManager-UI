@@ -1,12 +1,9 @@
-.row {
-
-    color: rgb(114, 28, 131);
-    font-family: cursive;
- 
-    margin-right: 0px;
-    margin-left: 20px;
+#add-expense-form{
+     padding-left: 25%;
+     padding-right: 25%;
+     padding-top: 5%;
 }
 
-#inner-content{
-    padding-top: 5%;
+span{
+    color: green;
 }

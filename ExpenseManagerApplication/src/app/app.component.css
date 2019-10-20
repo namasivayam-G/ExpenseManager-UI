@@ -1,3 +1,8 @@
 #content{
-    align-content: center
+    align-content: left
+}
+
+div,span,a{
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+font-size: 90%;
 }

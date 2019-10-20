@@ -1,0 +1,21 @@
+#edit{
+    color: rgb(218, 164, 64);
+}
+
+#delete{
+    color: rgb(173, 27, 27);
+}
+
+#save{
+    color: green;
+}
+
+i { cursor: pointer; }
+
+  
+
+td{
+    color: teal;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 300;
+}

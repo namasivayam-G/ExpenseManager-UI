@@ -32,3 +32,7 @@
 .topnav-right {
   float: right;
 }
+
+#menu{
+  background-color: teal !important;
+}
