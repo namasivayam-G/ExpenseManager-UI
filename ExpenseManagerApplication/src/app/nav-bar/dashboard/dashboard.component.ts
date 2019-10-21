@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ExpenseItem } from '../manage-expense/expense-item';
 import { GetExpenseApiService } from '../manage-expense/get-expense-api.service';
+import { DashboardService } from './dashboard.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -8,19 +9,42 @@ import { GetExpenseApiService } from '../manage-expense/get-expense-api.service'
 })
 export class DashboardComponent implements OnInit {
 
-  public doughnutChartLabels = ['Sales Q1', 'Sales Q2', 'Sales Q3', 'Sales Q4'];
-  public doughnutChartData = [120, 150, 180, 90];
+  public doughnutChartLabels: String[] = [];
+  public doughnutChartData = [];
   public doughnutChartType = 'doughnut';
-  public dbmodal: ExpenseItem[];
-  constructor(private api: GetExpenseApiService) {
+  public lineChartLabels: String[] = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+  public lineChartData = [1094, 145, 344, 234, 342, 455, 567];
+  public lineChartType = 'line';
+  private donutColors = [
+    {
+      backgroundColor: [
+        'red',
+        'green',
+        'purple',
+        'black',
+        'yellow'
+    ]
+    }
+  ];
+  public exByCategory: any;
+  constructor(private api: DashboardService) {
+    this.getByCategory();
   }
 
   ngOnInit() {
-    this.getExpensebyMonth();
   }
 
-  getExpensebyMonth() {
-    this.api.getExpenses().subscribe(result => this.dbmodal = result);
-    console.log('datssa', this.dbmodal);
+  getByCategory() {
+    this.api.getMonthlySpendsByCategory().subscribe(result => {
+      this.exByCategory = result as Map<String, ExpenseItem[]>;
+      Object.keys( this.exByCategory).forEach((key: string) => {
+        console.log(key,  this.api.getsumOfExpense(this.exByCategory[key]));
+        this.doughnutChartData.push(this.api.getsumOfExpense(this.exByCategory[key]));
+        this.doughnutChartLabels.push(key);
+console.log(this.doughnutChartData, this.doughnutChartLabels);
+        });
+    });
+
   }
+
 }

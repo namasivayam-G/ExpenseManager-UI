@@ -19,4 +19,16 @@ export class DashboardService {
     return this.http.get(this.monthlyExpenseURL);
   }
 
+  public getsumOfExpense(items: ExpenseItem[]): any {
+    let cost = 0;
+    for (let i = 0; i < items.length; i++) {
+      cost = +cost + +items[i].itemCost;
+  }
+    return cost;
+  }
+
+  public getsumOfExpense1 () {
+    return [20, 30, 60];
+  }
+
 }

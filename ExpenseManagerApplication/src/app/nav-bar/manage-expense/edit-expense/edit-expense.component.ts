@@ -16,10 +16,10 @@ export class EditExpenseComponent implements OnInit {
   private listOfExpenses: ExpenseItem[];
   private exByCategory: any;
   editEnabled: Boolean = false;
-  constructor(private api: GetExpenseApiService, private api2: DashboardService) { }
+  constructor(private api: GetExpenseApiService) { }
   ngOnInit() {
     this.getExpenseList();
-    this.getByCategory();
+   // this.getByCategory();
     // this.getByCategory();
     // this.exByCategory.forEach((value: string, key: string) => {
     //   console.log(key, value);
@@ -34,19 +34,7 @@ export class EditExpenseComponent implements OnInit {
     );
     console.log('rev', this.listOfExpenses);
   }
-
-  getByCategory() {
-    this.api2.getMonthlySpendsByCategory().subscribe(result => {
-      this.exByCategory = result as Map<String, ExpenseItem[]>;
-      Object.keys( this.exByCategory).forEach((key:string)=>{
-        console.log('lslls', this.exByCategory[key]);
-        });
-    });
-
-  }
-
-
-
+  
   delete(expense: ExpenseItem) {
     console.log(expense);
     this.api.deleteExpenses(expense).subscribe(error => console.log(error));
