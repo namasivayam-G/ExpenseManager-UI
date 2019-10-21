@@ -18,9 +18,9 @@
             </thead>
             <tbody>
                 
-                <tr *ngFor="let recipient of exByCategory | keyvalue">
-                    <td class="pt-3-half" contenteditable="true">{{exByCategory}}</td>
-                </tr>  
+               <tr *ngFor="let arrIt of exByCategory | keyvalue">
+                    <td class="pt-3-half" contenteditable="true">{{arrIt.value[0].itemName}}</td>
+                </tr>   
                 <tr *ngFor="let expense of listOfExpenses">
                   <td class="pt-3-half" contenteditable="true">{{expense.expenseId}}</td>
                   <td class="pt-3-half" contenteditable="true">{{expense.expenseDate}}</td>

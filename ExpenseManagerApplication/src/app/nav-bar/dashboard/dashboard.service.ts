@@ -14,9 +14,9 @@ export class DashboardService {
 
   constructor(private http: HttpClient) { }
 
-  public getMonthlySpendsByCategory(): Observable<Map<String, any>> {
+  public getMonthlySpendsByCategory(): Observable<any> {
 
-    return this.http.get<Map<String, any>>(this.monthlyExpenseURL);
+    return this.http.get(this.monthlyExpenseURL);
   }
 
 }

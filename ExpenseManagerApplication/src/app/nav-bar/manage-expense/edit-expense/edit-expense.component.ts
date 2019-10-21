@@ -14,16 +14,17 @@ import { DashboardService } from '../../dashboard/dashboard.service';
 export class EditExpenseComponent implements OnInit {
 
   private listOfExpenses: ExpenseItem[];
-  private exByCategory: Map<String, any>;
+  private exByCategory: any;
   editEnabled: Boolean = false;
   constructor(private api: GetExpenseApiService, private api2: DashboardService) { }
   ngOnInit() {
     this.getExpenseList();
     this.getByCategory();
-    this.exByCategory.forEach((value: string, key: string) => {
-      console.log(key, value);
+    // this.getByCategory();
+    // this.exByCategory.forEach((value: string, key: string) => {
+    //   console.log(key, value);
 
-    });
+    // });
 
   }
 
@@ -35,17 +36,20 @@ export class EditExpenseComponent implements OnInit {
   }
 
   getByCategory() {
-    this.api2.getMonthlySpendsByCategory().subscribe(result => this.exByCategory = result);
-    console.log('looggin', this.exByCategory);
-    this.exByCategory.forEach((value: string, key: string) => {
-      console.log('funyyyyyyyyyyyyyyyyyyyy', key, value);
-    }
+    this.api2.getMonthlySpendsByCategory().subscribe(result => {
+      this.exByCategory = result as Map<String, ExpenseItem[]>;
+      Object.keys( this.exByCategory).forEach((key:string)=>{
+        console.log('lslls', this.exByCategory[key]);
+        });
+    });
 
-    );\}
+  }
+
+
 
   delete(expense: ExpenseItem) {
     console.log(expense);
-    this.api.deleteExpenses(expense).subscribe( error => console.log(error));
+    this.api.deleteExpenses(expense).subscribe(error => console.log(error));
     this.getExpenseList();
   }
 
