@@ -4,6 +4,7 @@ import { ExpenseItem } from '../expense-item';
 import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DashboardModal } from '../../dashboard/dashboard-modal';
 import { DashboardService } from '../../dashboard/dashboard.service';
+import { ModalComponent } from './modal/modal.component';
 
 
 @Component({
@@ -16,15 +17,9 @@ export class EditExpenseComponent implements OnInit {
   private listOfExpenses: ExpenseItem[];
   private exByCategory: any;
   editEnabled: Boolean = false;
-  constructor(private api: GetExpenseApiService) { }
+  constructor(private api: GetExpenseApiService, private modalService: NgbModal) { }
   ngOnInit() {
     this.getExpenseList();
-   // this.getByCategory();
-    // this.getByCategory();
-    // this.exByCategory.forEach((value: string, key: string) => {
-    //   console.log(key, value);
-
-    // });
 
   }
 
@@ -36,9 +31,16 @@ export class EditExpenseComponent implements OnInit {
   }
   
   delete(expense: ExpenseItem) {
-    console.log(expense);
-    this.api.deleteExpenses(expense).subscribe(error => console.log(error));
-    this.getExpenseList();
+    const modalRef=  this.modalService.open(ModalComponent);
+    modalRef.componentInstance.title="Sure to Delete the expense detail?"
+    modalRef.componentInstance.clickevent.subscribe((result)=>{
+      console.log('result is',result);
+    if(result!=""){
+      this.api.deleteExpenses(expense).subscribe();
+      this.getExpenseList();
+    }
+    });
+
   }
 
   edit() {
@@ -46,4 +48,13 @@ export class EditExpenseComponent implements OnInit {
     this.editEnabled = true;
   }
 
+  //for modal handling
+  openConfirmationEdit(){
+  const modalRef=  this.modalService.open(ModalComponent);
+  modalRef.componentInstance.title="Sure to edit the expense detail?"
+  modalRef.componentInstance.clickevent.subscribe((result)=>{
+  console.log(result);   
+  });
+  this.edit();
+}
 }

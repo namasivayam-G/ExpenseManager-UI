@@ -31,8 +31,8 @@
                   <td>
                     <!-- <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a> -->
                     <a id="edit" class="edit" title="Edit" data-toggle="tooltip"
-                      (click)="expense.isEditable=!expense.isEditable"
-                      *ngIf="!expense.isEditable">
+                     (click)="openConfirmationEdit()"
+                    >
                     <i class="material-icons">&#xE254;</i></a>
 
                     <a id="save" class="edit" title="Edit" data-toggle="tooltip"

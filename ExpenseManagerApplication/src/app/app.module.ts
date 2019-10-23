@@ -12,6 +12,10 @@ import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from './nav-bar/dashboard/dashboard.component';
 import { ChartsModule } from 'ng2-charts';
 
+import { NgbModal, NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalComponent } from './nav-bar/manage-expense/edit-expense/modal/modal.component';
+import { AddModalComponent } from './nav-bar/manage-expense/edit-expense/add-modal/add-modal.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,16 +23,22 @@ import { ChartsModule } from 'ng2-charts';
     ManageExpenseComponent,
     AddExpenseComponent,
     EditExpenseComponent,
-    DashboardComponent
+    DashboardComponent,
+    ModalComponent,
+    AddModalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ChartsModule
+    ChartsModule,
+    NgbModule.forRoot()
   ],
-  providers: [],
+  providers: [NgbActiveModal],
+  entryComponents: [
+    ModalComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
