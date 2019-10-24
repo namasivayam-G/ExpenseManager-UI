@@ -5,6 +5,7 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DashboardModal } from '../../dashboard/dashboard-modal';
 import { DashboardService } from '../../dashboard/dashboard.service';
 import { ModalComponent } from './modal/modal.component';
+import { AddModalComponent } from './add-modal/add-modal.component';
 
 
 @Component({
@@ -56,5 +57,10 @@ export class EditExpenseComponent implements OnInit {
   console.log(result);   
   });
   this.edit();
+}
+
+add(){
+  const modalRef=  this.modalService.open(AddModalComponent);
+  modalRef.componentInstance.title="Add Expenses"
 }
 }

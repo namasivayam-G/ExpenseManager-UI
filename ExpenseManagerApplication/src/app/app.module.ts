@@ -37,7 +37,8 @@ import { AddModalComponent } from './nav-bar/manage-expense/edit-expense/add-mod
   ],
   providers: [NgbActiveModal],
   entryComponents: [
-    ModalComponent
+    ModalComponent,
+    AddModalComponent
   ],
   bootstrap: [AppComponent]
 })

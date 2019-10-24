@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { ExpenseItem } from '../../expense-item';
 
 @Component({
   selector: 'app-add-modal',
@@ -7,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddModalComponent implements OnInit {
 
-  constructor() { }
+  private expenseItem: ExpenseItem;
+  constructor(public activeModal: NgbActiveModal) { }
 
   ngOnInit() {
   }

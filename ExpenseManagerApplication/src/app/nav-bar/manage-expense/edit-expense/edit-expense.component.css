@@ -10,6 +10,19 @@
     color: green;
 }
 
+#add{
+    font-weight: 300!important;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: black;
+    font-size:20px;
+    line-height:29px;
+}
+
+#addicon{
+    color: goldenrod;
+    font-size: 50px!important;
+}
+
 i { cursor: pointer; }
 
   
