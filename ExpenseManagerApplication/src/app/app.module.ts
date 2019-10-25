@@ -8,13 +8,14 @@ import { ManageExpenseComponent } from './nav-bar/manage-expense/manage-expense.
 import { AddExpenseComponent } from './nav-bar/manage-expense/add-expense/add-expense.component';
 import { EditExpenseComponent } from './nav-bar/manage-expense/edit-expense/edit-expense.component';
 import {HttpClientModule} from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './nav-bar/dashboard/dashboard.component';
 import { ChartsModule } from 'ng2-charts';
 
 import { NgbModal, NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ModalComponent } from './nav-bar/manage-expense/edit-expense/modal/modal.component';
 import { AddModalComponent } from './nav-bar/manage-expense/edit-expense/add-modal/add-modal.component';
+import { from } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { AddModalComponent } from './nav-bar/manage-expense/edit-expense/add-mod
     HttpClientModule,
     FormsModule,
     ChartsModule,
+    ReactiveFormsModule,
     NgbModule.forRoot()
   ],
   providers: [NgbActiveModal],

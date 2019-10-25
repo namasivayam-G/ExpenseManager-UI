@@ -7,37 +7,28 @@
     </button>
   </div>
   <div class="modal-body">
-    <form (onSubmit)=submit()>
-      <div class="row">
-        <label for="name">Expense Name</label>
-        <input type="text" name="name" class="form-control" placeholder="Expense Name"
-        >
+    <form>
+      <div class="form-group">
+        <label for="exampleInputEmail1" class="bmd-label-floating">Item Name</label>
+        <input type="email" class="form-control" id="exampleInputEmail1">
       </div>
-      <div class="row">
-        <label for="category">Expense Cost</label>
-        <input type="text" name="category" class="form-control" placeholder="Expense Cost" required
-       >
+      <div class="form-group">
+        <label for="exampleInputPassword1" class="bmd-label-floating">Cost</label>
+        <input type="password" class="form-control" id="exampleInputPassword1">
       </div>
-      <div class="row">
-        <label for="category">Expense Category</label>
-        <input type="text" name="category" class="form-control" placeholder="Expense Category" required
-       >
-      </div>
-      <div class="row">
-        <label for="expense Date">Date of Expense</label>
-        <input type="date" name="date"  class="form-control" placeholder="Date of Expense" required
-       >
-      </div>
-      <div class="row">
-        <label for="description">Description</label>
-        <input type="text" name="desc" class="form-control" placeholder="comments" required
-        >
-      </div>
-      <br>
-      <div class="row" id="submitRow">
-        <button id="expense-button" type="submit" (click)="onSubmit()" class="btn btn-primary">Add Expense</button>
-      </div>
-      <span *ngIf="submitted"> New Expense has been created!! </span>
+
+      <div class="form-group">
+        <label for="exampleInputPassword1" class="bmd-label-floating">Category</label>
+        <input type="text" class="form-control" id="exampleInputPassword1" list="browsers">
+        <datalist id="browsers" *ngfor=let category in categories>
+          <option value="Internet Explorer">
+          <option value="Firefox">
+          <option value="Chrome">
+          <option value="Opera">
+          <option value="Safari">
+        </datalist>
+      </div>  
+
     </form>
   </div>
   <div class="modal-footer">
